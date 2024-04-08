@@ -28,12 +28,12 @@ class _OrderPageState extends State<OrderPage> {
       phoneNumber: '082163963582',
       fullAddress:
           'Jl. Sm Raja No.70, Balige II, Kec. Balige, Toba, Sumatera Utara 22312',
-      productName: 'Bawang Merah',
+      productName: 'Cabe Merah',
       imageUrl:
-          'https://pertanian.uma.ac.id/wp-content/uploads/2022/04/Pasca-Idulfitri-Stok-dan-Harga-Bawang-Merah-Terpantau-Aman-1.jpg',
-      price: '35.000',
-      totalPrice: '350.000',
-      productWeight: '10',
+          'https://bakoelsayur.net/wp-content/uploads/2020/04/4.-cabe-merah-kriting.jpg',
+      price: '40.000',
+      totalPrice: '520.000',
+      productWeight: '13',
     ),
   ];
   final List<OrderModel> orders2 = [
@@ -42,12 +42,12 @@ class _OrderPageState extends State<OrderPage> {
       phoneNumber: '082163963582',
       fullAddress:
           'Jl. Sm Raja No.70, Balige II, Kec. Balige, Toba, Sumatera Utara 22312',
-      productName: 'Cabe Merah',
+      productName: 'Bawang Merah',
       imageUrl:
-          'https://bakoelsayur.net/wp-content/uploads/2020/04/4.-cabe-merah-kriting.jpg',
-      price: '40.000',
-      totalPrice: '520.000',
-      productWeight: '13',
+          'https://pertanian.uma.ac.id/wp-content/uploads/2022/04/Pasca-Idulfitri-Stok-dan-Harga-Bawang-Merah-Terpantau-Aman-1.jpg',
+      price: '35.000',
+      totalPrice: '350.000',
+      productWeight: '10',
     ),
   ];
 
@@ -136,13 +136,22 @@ class _OrderPageState extends State<OrderPage> {
                 height: 24,
                 width: 155,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(
+                      color: const Color(0xff535353).withOpacity(0.7)),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Center(child: Text('Total: Rp. 350.000')),
+                child: const Center(
+                    child: Text(
+                  'Total: Rp. 350.000',
+                  style: TextStyle(fontSize: 14),
+                )),
               ),
-              InkWell(
-                onTap: () => const DetailOrder(),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailOrder(items: orders2),
+                    )),
                 child: Container(
                   height: 24,
                   width: 77,
@@ -150,7 +159,11 @@ class _OrderPageState extends State<OrderPage> {
                     color: const Color(0xff64AA54),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(child: Text('Detail')),
+                  child: const Center(
+                      child: Text(
+                    'Detail',
+                    style: TextStyle(fontSize: 14, color: Colors.white),
+                  )),
                 ),
               ),
             ],
@@ -219,8 +232,13 @@ class _OrderPageState extends State<OrderPage> {
                 ),
                 child: const Center(child: Text('Total: Rp. 620.000')),
               ),
-              InkWell(
-                onTap: () => const DetailOrder(),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailOrder(items: orders1),
+                  ),
+                ),
                 child: Container(
                   height: 24,
                   width: 77,
