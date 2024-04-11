@@ -1,9 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:partani_app/pages/confirmation_page.dart';
 import 'package:partani_app/widgets/custom_button.dart';
 
 class ConfirmationDialog extends StatelessWidget {
-  const ConfirmationDialog({super.key});
+  final String title;
+  final void Function() onTapCancel;
+  final void Function() onTapYa;
+  const ConfirmationDialog({
+    super.key,
+    required this.title,
+    required this.onTapCancel,
+    required this.onTapYa,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +23,12 @@ class ConfirmationDialog extends StatelessWidget {
       ),
       elevation: 0,
       backgroundColor: Colors.transparent,
-      child: _buildChild(context),
+      child: _buildChild(),
     );
   }
-}
 
-_buildChild(BuildContext context) => Container(
+  Widget _buildChild() {
+    return Container(
       width: 414,
       height: 277,
       decoration: BoxDecoration(
@@ -30,10 +40,10 @@ _buildChild(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
         child: Column(
           children: [
-            const Text(
-              'Apakah anda yakin mengkonfirmasi pesanan?',
+            Text(
+              title,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 42),
             Row(
@@ -46,7 +56,7 @@ _buildChild(BuildContext context) => Container(
                   label: 'Cancel',
                   textColor: Colors.black,
                   fontSize: 14,
-                  onTap: () => Navigator.pop(context),
+                  onTap: onTapCancel,
                 ),
                 const SizedBox(width: 57),
                 CustomButton(
@@ -56,12 +66,7 @@ _buildChild(BuildContext context) => Container(
                   label: 'Ya',
                   textColor: Colors.white,
                   fontSize: 14,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ConfirmationPage(),
-                    ),
-                  ),
+                  onTap: onTapYa,
                 ),
               ],
             )
@@ -69,8 +74,29 @@ _buildChild(BuildContext context) => Container(
         ),
       ),
     );
+  }
+}
 
 class DialogHelper {
   static confirmation(context) => showDialog(
-      context: context, builder: (context) => const ConfirmationDialog());
+        context: context,
+        builder: (context) => ConfirmationDialog(
+          title: 'Apakah anda yakin mengkonfirmasi pesanan?',
+          onTapCancel: () => Navigator.pop(context),
+          onTapYa: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ConfirmationPage(),
+            ),
+          ),
+        ),
+      );
+  static reject(context) => showDialog(
+        context: context,
+        builder: (context) => ConfirmationDialog(
+          title: 'Apakah anda yakin ingin menolak pesanan?',
+          onTapCancel: () => Navigator.pop(context),
+          onTapYa: () => Navigator.pop(context),
+        ),
+      );
 }

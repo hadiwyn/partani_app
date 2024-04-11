@@ -55,7 +55,7 @@ class _DetailOrderState extends State<DetailOrder> {
                     label: 'Tolak',
                     textColor: Colors.black,
                     fontSize: 14,
-                    onTap: () {},
+                    onTap: () => DialogHelper.reject(context),
                   ),
                   const SizedBox(width: 50),
                   CustomButton(
