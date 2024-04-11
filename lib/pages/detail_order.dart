@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:partani_app/extension/int_ext.dart';
 
 import 'package:partani_app/model/order_model.dart';
+import 'package:partani_app/widgets/confirmation_dialog.dart';
+import 'package:partani_app/widgets/custom_button.dart';
 
 class DetailOrder extends StatefulWidget {
   final List<OrderModel> items;
@@ -45,38 +48,24 @@ class _DetailOrderState extends State<DetailOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
+                  CustomButton(
+                    width: 89,
                     height: 24,
-                    width: 77,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffC6D3C3),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: const Center(
-                        child: Text(
-                      'Tolak',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
-                    )),
+                    color: const Color(0xffC6D3C3),
+                    label: 'Tolak',
+                    textColor: Colors.black,
+                    fontSize: 14,
+                    onTap: () {},
                   ),
                   const SizedBox(width: 50),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 24,
-                      width: 89,
-                      decoration: BoxDecoration(
-                        color: const Color(0xff64AA54),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: const Center(
-                          child: Text(
-                        'Konfirmasi',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),
-                      )),
-                    ),
+                  CustomButton(
+                    width: 89,
+                    height: 24,
+                    color: const Color(0xff64AA54),
+                    label: 'Konfirmasi',
+                    textColor: Colors.white,
+                    fontSize: 14,
+                    onTap: () => DialogHelper.confirmation(context),
                   ),
                 ],
               )
@@ -88,6 +77,10 @@ class _DetailOrderState extends State<DetailOrder> {
   }
 
   Widget _detailItem() {
+    int total = 0;
+    for (var item in widget.items) {
+      total += item.price * item.productWeight;
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -204,7 +197,7 @@ class _DetailOrderState extends State<DetailOrder> {
                           style: TextStyle(fontSize: 14),
                         ),
                         Text(
-                          'Rp. ${widget.items[index].price} x ${widget.items[index].productWeight} Kg',
+                          '${widget.items[index].price.currencyFormatRp} x ${widget.items[index].productWeight} Kg = ${(widget.items[index].price * widget.items[index].productWeight).currencyFormatRp}',
                           style: const TextStyle(fontSize: 14),
                         ),
                       ],
@@ -221,7 +214,7 @@ class _DetailOrderState extends State<DetailOrder> {
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Center(child: Text('Total: Rp. 350.000')),
+                child: Center(child: Text('Total: ${total.currencyFormatRp}')),
               ),
               const SizedBox(height: 17),
             ],

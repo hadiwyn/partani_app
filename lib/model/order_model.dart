@@ -4,9 +4,8 @@ class OrderModel {
   final String fullAddress;
   final String productName;
   final String imageUrl;
-  final String price;
-  final String totalPrice;
-  final String productWeight;
+  final int price;
+  final int productWeight;
 
   OrderModel({
     required this.userName,
@@ -15,7 +14,6 @@ class OrderModel {
     required this.productName,
     required this.imageUrl,
     required this.price,
-    required this.totalPrice,
     required this.productWeight,
   });
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:partani_app/extension/int_ext.dart';
 import 'package:partani_app/model/order_model.dart';
 import 'package:partani_app/pages/detail_order.dart';
+import 'package:partani_app/widgets/custom_button.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
@@ -19,9 +21,8 @@ class _OrderPageState extends State<OrderPage> {
       productName: 'Tomat',
       imageUrl:
           'https://umsu.ac.id/artikel/wp-content/uploads/2023/09/manfaat-tomat-buah-segar-yang-penuh-nutrisi.jpg',
-      price: '10.000',
-      totalPrice: '100.000',
-      productWeight: '10',
+      price: 10000,
+      productWeight: 10,
     ),
     OrderModel(
       userName: 'Yuni Yustina Siagian',
@@ -31,9 +32,8 @@ class _OrderPageState extends State<OrderPage> {
       productName: 'Cabe Merah',
       imageUrl:
           'https://bakoelsayur.net/wp-content/uploads/2020/04/4.-cabe-merah-kriting.jpg',
-      price: '40.000',
-      totalPrice: '520.000',
-      productWeight: '13',
+      price: 40000,
+      productWeight: 13,
     ),
   ];
   final List<OrderModel> orders2 = [
@@ -44,10 +44,9 @@ class _OrderPageState extends State<OrderPage> {
           'Jl. Sm Raja No.70, Balige II, Kec. Balige, Toba, Sumatera Utara 22312',
       productName: 'Bawang Merah',
       imageUrl:
-          'https://pertanian.uma.ac.id/wp-content/uploads/2022/04/Pasca-Idulfitri-Stok-dan-Harga-Bawang-Merah-Terpantau-Aman-1.jpg',
-      price: '35.000',
-      totalPrice: '350.000',
-      productWeight: '10',
+          'https://s3-publishing-cmn-svc-prd.s3.ap-southeast-1.amazonaws.com/article/tpqx_7Ik9yLWFVOeJTs4W/original/052222900_1607682083-Manfaat-Bawang-Merah_-Antialergi-hingga-Menurunkan-Risiko-Kanker-shutterstock_1724962108.jpg',
+      price: 35000,
+      productWeight: 10,
     ),
   ];
 
@@ -84,6 +83,10 @@ class _OrderPageState extends State<OrderPage> {
   }
 
   Widget _orderItem2() {
+    int totalPrice = 0;
+    for (var item in orders2) {
+      totalPrice += item.price * item.productWeight;
+    }
     return Container(
       width: 368,
       decoration: BoxDecoration(
@@ -106,7 +109,10 @@ class _OrderPageState extends State<OrderPage> {
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(color: Colors.black),
                   ),
-                  child: Image.network(orders2[index].imageUrl),
+                  child: Image.network(
+                    orders2[index].imageUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 title: Text(
                   orders2[index].productName,
@@ -116,7 +122,7 @@ class _OrderPageState extends State<OrderPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Rp ${orders2[index].price}/Kg',
+                      '${orders2[index].price.currencyFormatRp}/Kg',
                       style: const TextStyle(fontSize: 14),
                     ),
                     Text(
@@ -140,31 +146,24 @@ class _OrderPageState extends State<OrderPage> {
                       color: const Color(0xff535353).withOpacity(0.7)),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Center(
+                child: Center(
                     child: Text(
-                  'Total: Rp. 350.000',
-                  style: TextStyle(fontSize: 14),
+                  'Total: ${totalPrice.currencyFormatRp}',
+                  style: const TextStyle(fontSize: 14),
                 )),
               ),
-              GestureDetector(
+              CustomButton(
+                width: 77,
+                height: 24,
+                color: const Color(0xff64AA54),
+                label: 'Detail',
+                textColor: Colors.white,
+                fontSize: 14,
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => DetailOrder(items: orders2),
                     )),
-                child: Container(
-                  height: 24,
-                  width: 77,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff64AA54),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Center(
-                      child: Text(
-                    'Detail',
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  )),
-                ),
               ),
             ],
           ),
@@ -175,6 +174,10 @@ class _OrderPageState extends State<OrderPage> {
   }
 
   Widget _orderItem1() {
+    int totalPrice = 0;
+    for (var item in orders1) {
+      totalPrice += item.price * item.productWeight;
+    }
     return Container(
       width: 368,
       decoration: BoxDecoration(
@@ -197,7 +200,10 @@ class _OrderPageState extends State<OrderPage> {
                     borderRadius: BorderRadius.circular(7),
                     border: Border.all(color: Colors.black),
                   ),
-                  child: Image.network(orders1[index].imageUrl),
+                  child: Image.network(
+                    orders1[index].imageUrl,
+                    fit: BoxFit.contain,
+                  ),
                 ),
                 title: Text(
                   orders1[index].productName,
@@ -207,7 +213,7 @@ class _OrderPageState extends State<OrderPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Rp ${orders1[index].price}/Kg',
+                      '${orders1[index].price.currencyFormatRp}/Kg',
                       style: const TextStyle(fontSize: 14),
                     ),
                     Text(
@@ -230,24 +236,21 @@ class _OrderPageState extends State<OrderPage> {
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: const Center(child: Text('Total: Rp. 620.000')),
+                child: Center(
+                    child: Text('Total: ${totalPrice.currencyFormatRp}')),
               ),
-              GestureDetector(
+              CustomButton(
+                width: 77,
+                height: 24,
+                color: const Color(0xff64AA54),
+                label: 'Detail',
+                textColor: Colors.white,
+                fontSize: 14,
                 onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailOrder(items: orders1),
-                  ),
-                ),
-                child: Container(
-                  height: 24,
-                  width: 77,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff64AA54),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Center(child: Text('Detail')),
-                ),
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailOrder(items: orders1),
+                    )),
               ),
             ],
           ),
