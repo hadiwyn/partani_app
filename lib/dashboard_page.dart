@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:partani_app/pages/profile_page.dart';
-import 'package:partani_app/pages/home_page.dart';
-import 'package:partani_app/pages/order_page.dart';
+import 'package:partani_app/profile_page.dart';
+import 'package:partani_app/home_page.dart';
+import 'package:partani_app/order_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});

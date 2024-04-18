@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:partani_app/widgets/custom_button.dart';
 
 class ConfirmationPage extends StatelessWidget {
   const ConfirmationPage({super.key});
@@ -21,14 +20,25 @@ class ConfirmationPage extends StatelessWidget {
                   style: TextStyle(fontSize: 24),
                 ),
                 const SizedBox(height: 100),
-                CustomButton(
-                  width: 117,
-                  height: 44,
-                  color: const Color(0xff64AA54),
-                  label: 'Ok',
-                  textColor: Colors.white,
-                  fontSize: 16,
+                GestureDetector(
                   onTap: () => Navigator.pop(context),
+                  child: Container(
+                    width: 117,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff64AA54),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Ok',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
