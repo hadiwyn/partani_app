@@ -195,8 +195,8 @@ class _DetailOrderState extends State<DetailOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  GestureDetector(
-                    onTap: () {
+                  ElevatedButton(
+                    onPressed: () {
                       showDialog(
                         context: context,
                         builder: (context) {
@@ -216,7 +216,7 @@ class _DetailOrderState extends State<DetailOrder> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 80),
+                                    horizontal: 20, vertical: 70),
                                 child: Column(
                                   children: [
                                     const Text(
@@ -224,51 +224,47 @@ class _DetailOrderState extends State<DetailOrder> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 16),
                                     ),
-                                    const SizedBox(height: 42),
+                                    const SizedBox(height: 30),
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        GestureDetector(
-                                          onTap: () => Navigator.pop(context),
-                                          child: Container(
-                                            width: 77,
-                                            height: 27,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xffC6D3C3),
+                                        ElevatedButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                const Color(0xffC6D3C3),
+                                            foregroundColor: Colors.black,
+                                            textStyle:
+                                                const TextStyle(fontSize: 14),
+                                            minimumSize: const Size(77, 27),
+                                            shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4),
                                             ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Cancel',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
+                                          ),
+                                          child: const Text(
+                                            'Cancel',
                                           ),
                                         ),
                                         const SizedBox(width: 57),
-                                        GestureDetector(
-                                          onTap: () => Navigator.pop(context),
-                                          child: Container(
-                                            width: 77,
-                                            height: 27,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xff64AA54),
+                                        ElevatedButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                const Color(0xff64AA54),
+                                            foregroundColor: Colors.white,
+                                            textStyle:
+                                                const TextStyle(fontSize: 14),
+                                            minimumSize: const Size(77, 27),
+                                            shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4),
                                             ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Ya',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ),
+                                          ),
+                                          child: const Text(
+                                            'Ya',
                                           ),
                                         ),
                                       ],
@@ -281,27 +277,22 @@ class _DetailOrderState extends State<DetailOrder> {
                         },
                       );
                     },
-                    child: Container(
-                      width: 89,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffC6D3C3),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffC6D3C3),
+                      foregroundColor: Colors.black,
+                      minimumSize: const Size(89, 24),
+                      textStyle: const TextStyle(fontSize: 14),
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Center(
-                        child: Text(
-                          'Tolak',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
+                    ),
+                    child: const Text(
+                      'Tolak',
                     ),
                   ),
                   const SizedBox(width: 50),
-                  GestureDetector(
-                    onTap: () {
+                  ElevatedButton(
+                    onPressed: () {
                       showDialog(
                         context: context,
                         builder: (context) {
@@ -321,7 +312,7 @@ class _DetailOrderState extends State<DetailOrder> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 80),
+                                    horizontal: 20, vertical: 70),
                                 child: Column(
                                   children: [
                                     const Text(
@@ -329,77 +320,54 @@ class _DetailOrderState extends State<DetailOrder> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 16),
                                     ),
-                                    const SizedBox(height: 42),
+                                    const SizedBox(height: 30),
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        GestureDetector(
-                                          onTap: () => Navigator.pop(context),
-                                          child: Container(
-                                            width: 77,
-                                            height: 27,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xffC6D3C3),
+                                        ElevatedButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                const Color(0xffC6D3C3),
+                                            foregroundColor: Colors.black,
+                                            textStyle:
+                                                const TextStyle(fontSize: 14),
+                                            minimumSize: const Size(77, 27),
+                                            shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4),
                                             ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Cancel',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
+                                          ),
+                                          child: const Text(
+                                            'Cancel',
                                           ),
                                         ),
-                                        // CustomButton(
-                                        //   width: 77,
-                                        //   height: 27,
-                                        //   color: const Color(0xffC6D3C3),
-                                        //   label: 'Cancel',
-                                        //   textColor: Colors.black,
-                                        //   fontSize: 14,
-                                        //   onTap: onTapCancel,
-                                        // ),
                                         const SizedBox(width: 57),
-                                        GestureDetector(
-                                          onTap: () => Navigator.push(
+                                        ElevatedButton(
+                                          onPressed: () => Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
                                                   const ConfirmationPage(),
                                             ),
                                           ),
-                                          child: Container(
-                                            width: 77,
-                                            height: 27,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xff64AA54),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                                const Color(0xff64AA54),
+                                            foregroundColor: Colors.white,
+                                            textStyle:
+                                                const TextStyle(fontSize: 14),
+                                            minimumSize: const Size(77, 27),
+                                            shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(4),
                                             ),
-                                            child: const Center(
-                                              child: Text(
-                                                'Ya',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ),
+                                          ),
+                                          child: const Text(
+                                            'Ya',
                                           ),
                                         ),
-                                        // CustomButton(
-                                        //   width: 77,
-                                        //   height: 27,
-                                        //   color: const Color(0xff64AA54),
-                                        //   label: 'Ya',
-                                        //   textColor: Colors.white,
-                                        //   fontSize: 14,
-                                        //   onTap: onTapYa,
-                                        // ),
                                       ],
                                     )
                                   ],
@@ -410,22 +378,17 @@ class _DetailOrderState extends State<DetailOrder> {
                         },
                       );
                     },
-                    child: Container(
-                      width: 89,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: const Color(0xff64AA54),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff64AA54),
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(89, 24),
+                      textStyle: const TextStyle(fontSize: 14),
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Center(
-                        child: Text(
-                          'Konfirmasi',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                    ),
+                    child: const Text(
+                      'Konfirmasi',
                     ),
                   ),
                 ],
@@ -436,152 +399,4 @@ class _DetailOrderState extends State<DetailOrder> {
       ),
     );
   }
-
-  // Widget _detailItem() {
-  //   int total = 0;
-  //   for (var item in widget.items) {
-  //     total += item.price * item.productWeight;
-  //   }
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     children: [
-  //       Column(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: List.generate(
-  //           1,
-  //           (index) => Table(
-  //             columnWidths: const {
-  //               0: FlexColumnWidth(4),
-  //               1: FlexColumnWidth(1),
-  //               2: FlexColumnWidth(4),
-  //             },
-  //             children: [
-  //               TableRow(
-  //                 children: [
-  //                   const TableCell(
-  //                     child: Text(
-  //                       'Nama Pemesan',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   const TableCell(
-  //                     child: Text(
-  //                       ':',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   TableCell(
-  //                     child: Text(
-  //                       widget.items[index].userName,
-  //                       style: const TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               ),
-  //               TableRow(
-  //                 children: [
-  //                   const TableCell(
-  //                     child: Text(
-  //                       'Nomor Telepon',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   const TableCell(
-  //                     child: Text(
-  //                       ':',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   TableCell(
-  //                     child: Text(
-  //                       widget.items[index].phoneNumber,
-  //                       style: const TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               ),
-  //               TableRow(
-  //                 children: [
-  //                   const TableCell(
-  //                     child: Text(
-  //                       'Alamat Lengkap',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   const TableCell(
-  //                     child: Text(
-  //                       ':',
-  //                       style: TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                   TableCell(
-  //                     child: Text(
-  //                       widget.items[index].fullAddress,
-  //                       style: const TextStyle(fontSize: 14),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               ),
-  //             ],
-  //           ),
-  //         ),
-  //       ),
-  //       const SizedBox(height: 16),
-  //       const Text('Pesanan:'),
-  //       const SizedBox(height: 8),
-  //       Container(
-  //         width: 344,
-  //         decoration: BoxDecoration(
-  //           color: const Color(0xffEFF4EF),
-  //           border: Border.all(color: Colors.black),
-  //           borderRadius: BorderRadius.circular(5),
-  //         ),
-  //         child: Column(
-  //           children: [
-  //             ListView.separated(
-  //               shrinkWrap: true,
-  //               physics: const NeverScrollableScrollPhysics(),
-  //               itemCount: widget.items.length,
-  //               separatorBuilder: (context, index) =>
-  //                   const SizedBox(height: 30),
-  //               itemBuilder: (context, index) {
-  //                 return ListTile(
-  //                   title: Text(
-  //                     widget.items[index].productName,
-  //                     style: const TextStyle(fontSize: 14),
-  //                   ),
-  //                   subtitle: Column(
-  //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //                     children: [
-  //                       const Text(
-  //                         'Deskripsi:',
-  //                         style: TextStyle(fontSize: 14),
-  //                       ),
-  //                       Text(
-  //                         '${widget.items[index].price.currencyFormatRp} x ${widget.items[index].productWeight} Kg = ${(widget.items[index].price * widget.items[index].productWeight).currencyFormatRp}',
-  //                         style: const TextStyle(fontSize: 14),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 );
-  //               },
-  //             ),
-  //             const SizedBox(height: 20),
-  //             Container(
-  //               margin: const EdgeInsets.only(left: 100),
-  //               height: 24,
-  //               width: 155,
-  //               decoration: BoxDecoration(
-  //                 border: Border.all(color: Colors.black),
-  //                 borderRadius: BorderRadius.circular(5),
-  //               ),
-  //               child: Center(child: Text('Total: ${total.currencyFormatRp}')),
-  //             ),
-  //             const SizedBox(height: 17),
-  //           ],
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
 }

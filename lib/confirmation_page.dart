@@ -19,25 +19,20 @@ class ConfirmationPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 24),
                 ),
-                const SizedBox(height: 100),
-                GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: Container(
-                    width: 117,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: const Color(0xff64AA54),
+                const SizedBox(height: 70),
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xff64AA54),
+                    foregroundColor: Colors.white,
+                    textStyle: const TextStyle(fontSize: 16),
+                    minimumSize: const Size(117, 44),
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: const Center(
-                      child: Text(
-                        'Ok',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  ),
+                  child: const Text(
+                    'Ok',
                   ),
                 ),
               ],

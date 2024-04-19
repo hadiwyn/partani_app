@@ -143,29 +143,24 @@ class _OrderPageState extends State<OrderPage> {
                                   'Total: ${totalPrice1.currencyFormatRp}'),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () => Navigator.push(
+                          ElevatedButton(
+                            onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
                                       DetailOrder(items: orders1),
                                 )),
-                            child: Container(
-                              width: 77,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff64AA54),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff64AA54),
+                              foregroundColor: Colors.white,
+                              textStyle: const TextStyle(fontSize: 14),
+                              minimumSize: const Size(77, 24),
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              child: const Center(
-                                child: Text(
-                                  'Detail',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
+                            ),
+                            child: const Text(
+                              'Detail',
                             ),
                           ),
                         ],
@@ -242,29 +237,24 @@ class _OrderPageState extends State<OrderPage> {
                               style: const TextStyle(fontSize: 14),
                             )),
                           ),
-                          GestureDetector(
-                            onTap: () => Navigator.push(
+                          ElevatedButton(
+                            onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
                                       DetailOrder(items: orders2),
                                 )),
-                            child: Container(
-                              width: 77,
-                              height: 24,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff64AA54),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff64AA54),
+                              foregroundColor: Colors.white,
+                              textStyle: const TextStyle(fontSize: 14),
+                              minimumSize: const Size(77, 24),
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              child: const Center(
-                                child: Text(
-                                  'Detail',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
+                            ),
+                            child: const Text(
+                              'Detail',
                             ),
                           ),
                         ],
@@ -280,182 +270,4 @@ class _OrderPageState extends State<OrderPage> {
       ),
     );
   }
-
-  // Widget _orderItem2() {
-  //   int totalPrice = 0;
-  //   for (var item in orders2) {
-  //     totalPrice += item.price * item.productWeight;
-  //   }
-  //   return Container(
-  //     width: 368,
-  //     decoration: BoxDecoration(
-  //       color: Colors.white,
-  //       borderRadius: BorderRadius.circular(10),
-  //     ),
-  //     child: Column(
-  //       children: [
-  //         ListView.separated(
-  //           shrinkWrap: true,
-  //           physics: const NeverScrollableScrollPhysics(),
-  //           itemCount: orders2.length,
-  //           separatorBuilder: (context, index) => const SizedBox(height: 30),
-  //           itemBuilder: (context, index) {
-  //             return ListTile(
-  //               leading: Container(
-  //                 width: 76,
-  //                 height: 70,
-  //                 decoration: BoxDecoration(
-  //                   borderRadius: BorderRadius.circular(7),
-  //                   border: Border.all(color: Colors.black),
-  //                 ),
-  //                 child: Image.network(
-  //                   orders2[index].imageUrl,
-  //                   fit: BoxFit.cover,
-  //                 ),
-  //               ),
-  //               title: Text(
-  //                 orders2[index].productName,
-  //                 style: const TextStyle(fontSize: 17),
-  //               ),
-  //               subtitle: Column(
-  //                 crossAxisAlignment: CrossAxisAlignment.start,
-  //                 children: [
-  //                   Text(
-  //                     '${orders2[index].price.currencyFormatRp}/Kg',
-  //                     style: const TextStyle(fontSize: 14),
-  //                   ),
-  //                   Text(
-  //                     'Pesanan: ${orders2[index].productWeight} Kg',
-  //                     style: const TextStyle(fontSize: 14),
-  //                   ),
-  //                 ],
-  //               ),
-  //             );
-  //           },
-  //         ),
-  //         const SizedBox(height: 20),
-  //         Row(
-  //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //           children: [
-  //             Container(
-  //               height: 24,
-  //               width: 155,
-  //               decoration: BoxDecoration(
-  //                 border: Border.all(
-  //                     color: const Color(0xff535353).withOpacity(0.7)),
-  //                 borderRadius: BorderRadius.circular(5),
-  //               ),
-  //               child: Center(
-  //                   child: Text(
-  //                 'Total: ${totalPrice.currencyFormatRp}',
-  //                 style: const TextStyle(fontSize: 14),
-  //               )),
-  //             ),
-  //             CustomButton(
-  //               width: 77,
-  //               height: 24,
-  //               color: const Color(0xff64AA54),
-  //               label: 'Detail',
-  //               textColor: Colors.white,
-  //               fontSize: 14,
-  //               onTap: () => Navigator.push(
-  //                   context,
-  //                   MaterialPageRoute(
-  //                     builder: (context) => DetailOrder(items: orders2),
-  //                   )),
-  //             ),
-  //           ],
-  //         ),
-  //         const SizedBox(height: 40),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-//   Widget _orderItem1() {
-//     int totalPrice = 0;
-//     for (var item in orders1) {
-//       totalPrice += item.price * item.productWeight;
-//     }
-//     return Container(
-//       width: 368,
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(10),
-//       ),
-//       child: Column(
-//         children: [
-//           ListView.separated(
-//             shrinkWrap: true,
-//             physics: const NeverScrollableScrollPhysics(),
-//             itemCount: orders1.length,
-//             separatorBuilder: (context, index) => const SizedBox(height: 30),
-//             itemBuilder: (context, index) {
-//               return ListTile(
-//                 leading: Container(
-//                   width: 76,
-//                   height: 70,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(7),
-//                     border: Border.all(color: Colors.black),
-//                   ),
-//                   child: Image.network(
-//                     orders1[index].imageUrl,
-//                     fit: BoxFit.contain,
-//                   ),
-//                 ),
-//                 title: Text(
-//                   orders1[index].productName,
-//                   style: const TextStyle(fontSize: 17),
-//                 ),
-//                 subtitle: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Text(
-//                       '${orders1[index].price.currencyFormatRp}/Kg',
-//                       style: const TextStyle(fontSize: 14),
-//                     ),
-//                     Text(
-//                       'Pesanan: ${orders1[index].productWeight} Kg',
-//                       style: const TextStyle(fontSize: 14),
-//                     ),
-//                   ],
-//                 ),
-//               );
-//             },
-//           ),
-//           const SizedBox(height: 20),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//             children: [
-//               Container(
-//                 height: 24,
-//                 width: 155,
-//                 decoration: BoxDecoration(
-//                   border: Border.all(color: Colors.black),
-//                   borderRadius: BorderRadius.circular(5),
-//                 ),
-//                 child: Center(
-//                     child: Text('Total: ${totalPrice.currencyFormatRp}')),
-//               ),
-//               CustomButton(
-//                 width: 77,
-//                 height: 24,
-//                 color: const Color(0xff64AA54),
-//                 label: 'Detail',
-//                 textColor: Colors.white,
-//                 fontSize: 14,
-//                 onTap: () => Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                       builder: (context) => DetailOrder(items: orders1),
-//                     )),
-//               ),
-//             ],
-//           ),
-//           const SizedBox(height: 40),
-//         ],
-//       ),
-//     );
-//   }
 }
