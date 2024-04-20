@@ -1,10 +1,14 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:partani_app/dashboard_page.dart';
 
-class ConfirmationPage extends StatelessWidget {
-  const ConfirmationPage({super.key});
+class CancelPage extends StatefulWidget {
+  const CancelPage({super.key});
 
+  @override
+  State<CancelPage> createState() => _CancelPageState();
+}
+
+class _CancelPageState extends State<CancelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,7 @@ class ConfirmationPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Pesanan telah dikonfirmasi !! Silahkan persiapkan pesanan',
+                  'Pesanan telah Dibatalkan !!',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 24),
                 ),
@@ -24,11 +28,9 @@ class ConfirmationPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DashboardPage(),
-                      ),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DashboardPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff64AA54),

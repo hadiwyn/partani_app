@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:partani_app/cancel_page.dart';
 import 'package:partani_app/int_ext.dart';
 
 import 'package:partani_app/order_model.dart';
@@ -249,8 +250,11 @@ class _DetailOrderState extends State<DetailOrder> {
                                         ),
                                         const SizedBox(width: 57),
                                         ElevatedButton(
-                                          onPressed: () =>
-                                              Navigator.pop(context),
+                                          onPressed: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const CancelPage())),
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor:
                                                 const Color(0xff64AA54),
